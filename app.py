@@ -112,6 +112,9 @@ def load_model_and_scaler():
 
 # Load data and model at app startup
 df = load_data()
+if df is None:
+    st.error("Unable to proceed due to data loading error. Please check the data file and try again.")
+    st.stop()
 model, scaler = load_model_and_scaler()
 
 
